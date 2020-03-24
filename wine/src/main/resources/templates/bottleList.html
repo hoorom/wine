@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Ma cave</title>
+      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+   </head>
+   <body>
+      <h1>Ma cave</h1>
+      <a href="addBottle">Ajouter une bouteille</a>
+      <br/><br/>
+      <div>
+         <table border="1">
+            <tr>
+               <th>Nom</th>
+            </tr>
+            <tr th:each ="bottle : ${bottles}">
+               <td th:utext="${bottle.name}">...</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>

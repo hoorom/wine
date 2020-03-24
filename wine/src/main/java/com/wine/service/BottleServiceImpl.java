@@ -33,7 +33,7 @@ public class BottleServiceImpl implements BottleService {
 	@Override
 	public Collection<Bottle> getBottles() {
 		List<Bottle> bottles = bottleRepository.findAll();
-		System.out.println("Bottles : " + bottles);
+		System.out.println(bottles);
 		return bottles;
 	}
 
