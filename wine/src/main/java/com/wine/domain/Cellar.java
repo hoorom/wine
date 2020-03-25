@@ -1,40 +1,30 @@
 package com.wine.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity	
-@Table(name="BOTTLE")
+@Table(name="CELLAR")
 /**
- * Bouteille
+ * Cave
  */
-public class Bottle {
-	
+public class Cellar {
+
 	@Id
     @GeneratedValue
 	private Long id;
-	
-	@ManyToOne
-    @JoinColumn(name="cellar_id")
-	private Cellar cellar;
-	
-	@ManyToOne
-	@JoinColumn(name="wine_id")
-	private Wine wine;
 
 	@Column(name="name")
 	private String name;
 	
-	@Column(name="vintage")
-	private Integer vintage;
-	
-	
-	//TODO Quantité	Appelation	Domaine	Cuvée	Couleur	Année	A boire à partir de	A boire jusqu'à	Lieu de stockage
+	@OneToMany(mappedBy="cellar")
+	private List<Bottle> bottles;
 
 	public Long getId() {
 		return id;
@@ -51,10 +41,18 @@ public class Bottle {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	@Override
-	public String toString() {
-		return id + " : " + name;
+
+	public List<Bottle> getBottles() {
+		return bottles;
+	}
+
+	public void setBottles(List<Bottle> bottles) {
+		this.bottles = bottles;
 	}
 	
+	@Override
+		public String toString() {
+			return id + " " + name;
+		}
+
 }
