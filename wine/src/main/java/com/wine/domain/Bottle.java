@@ -8,11 +8,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Entity	
 @Table(name="BOTTLE")
 /**
  * Bouteille
  */
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 public class Bottle {
 	
 	@Id
@@ -32,29 +41,5 @@ public class Bottle {
 	
 	@Column(name="vintage")
 	private Integer vintage;
-	
-	
-	//TODO Quantité	Appelation	Domaine	Cuvée	Couleur	Année	A boire à partir de	A boire jusqu'à	Lieu de stockage
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@Override
-	public String toString() {
-		return id + " : " + name;
-	}
 	
 }

@@ -9,8 +9,11 @@ import javax.persistence.Table;
 
 import com.wine.util.WineColor;
 
+import lombok.Data;
+
 @Entity
 @Table(name="WINE")
+@Data
 public class Wine {
 
 	@GeneratedValue

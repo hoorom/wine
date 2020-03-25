@@ -9,8 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity	
 @Table(name="CELLAR")
+@Data
 /**
  * Cave
  */
@@ -25,34 +28,5 @@ public class Cellar {
 	
 	@OneToMany(mappedBy="cellar")
 	private List<Bottle> bottles;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public List<Bottle> getBottles() {
-		return bottles;
-	}
-
-	public void setBottles(List<Bottle> bottles) {
-		this.bottles = bottles;
-	}
-	
-	@Override
-		public String toString() {
-			return id + " " + name;
-		}
 
 }
