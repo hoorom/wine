@@ -37,6 +37,8 @@ public class Bottle {
 	private Wine wine;
 
 	@Column(name="name")
+	@Getter
+	@Setter
 	private String name;
 	
 	@Column(name="vintage")

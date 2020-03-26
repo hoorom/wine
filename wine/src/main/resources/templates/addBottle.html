@@ -8,7 +8,7 @@
    <body>
       <h1>Ajouter une bouteille :</h1>
        
-      <form th:action="@{/addBottle}"
+      <form th:action="@{/bottleList/addBottle}"
          th:object="${bottleForm}" method="POST">
          Nom :
          <input type="text" th:field="*{name}" />    

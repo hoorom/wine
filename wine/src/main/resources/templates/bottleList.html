@@ -15,7 +15,11 @@
                <th>Nom</th>
             </tr>
             <tr th:each ="bottle : ${bottles}">
-               <td th:utext="${bottle.name}">...</td>
+               <td th:utext="${bottle.name}" />
+               <td th:utext="${bottle.id}" />
+               <td>
+                <a th:href="@{'/bottleList/removeBottle/' + ${bottle.id}}" class="btn btn-danger" >Boire</a>
+               </td>
             </tr>
          </table>
       </div>
