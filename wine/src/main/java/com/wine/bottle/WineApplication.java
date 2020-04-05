@@ -1,4 +1,4 @@
-package com.wine;
+package com.wine.bottle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wine.domain.Bottle;
-import com.wine.form.BottleForm;
-import com.wine.service.BottleService;
+import com.wine.bottle.domain.Bottle;
+import com.wine.bottle.form.BottleForm;
+import com.wine.bottle.service.BottleService;
 
 @SpringBootApplication
 @Controller

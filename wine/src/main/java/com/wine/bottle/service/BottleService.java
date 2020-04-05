@@ -1,8 +1,8 @@
-package com.wine.service;
+package com.wine.bottle.service;
 
 import java.util.Collection;
 
-import com.wine.domain.Bottle;
+import com.wine.bottle.domain.Bottle;
 
 public interface BottleService {
 

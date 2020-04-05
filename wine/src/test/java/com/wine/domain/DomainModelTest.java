@@ -2,6 +2,8 @@ package com.wine.domain;
 
 import org.junit.jupiter.api.Test;
 
+import com.wine.bottle.domain.Bottle;
+
 class DomainModelTests {
 
 	private Bottle bottle;

@@ -1,4 +1,4 @@
-package com.wine.controller;
+package com.wine.bottle.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wine.domain.Bottle;
-import com.wine.service.BottleService;
+import com.wine.bottle.domain.Bottle;
+import com.wine.bottle.service.BottleService;
 
 @RestController
 public class BottleServiceController {

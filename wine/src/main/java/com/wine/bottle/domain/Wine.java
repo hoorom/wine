@@ -1,19 +1,19 @@
-package com.wine.domain;
+package com.wine.bottle.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-import com.wine.util.WineColor;
+import com.wine.bottle.util.WineColor;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
-@Table(name="WINE")
-@Data
+@ToString
+@EqualsAndHashCode
 public class Wine {
 
 	@GeneratedValue

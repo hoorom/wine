@@ -1,4 +1,4 @@
-package com.wine.form;
+package com.wine.bottle.form;
 
 public class BottleForm {
 	

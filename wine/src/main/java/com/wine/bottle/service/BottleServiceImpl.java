@@ -1,4 +1,4 @@
-package com.wine.service;
+package com.wine.bottle.service;
 
 import java.util.Collection;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wine.domain.Bottle;
-import com.wine.repository.BottleRepository;
+import com.wine.bottle.domain.Bottle;
+import com.wine.bottle.repository.BottleRepository;
 
 @Service
 public class BottleServiceImpl implements BottleService {

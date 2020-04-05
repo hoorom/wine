@@ -1,4 +1,4 @@
-package com.wine.domain;
+package com.wine.bottle.domain;
 
 import java.util.List;
 
@@ -10,10 +10,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity	
-@Table(name="CELLAR")
-@Data
+@ToString
+@EqualsAndHashCode
 /**
  * Cave
  */
@@ -23,7 +25,6 @@ public class Cellar {
     @GeneratedValue
 	private Long id;
 
-	@Column(name="name")
 	private String name;
 	
 	@OneToMany(mappedBy="cellar")

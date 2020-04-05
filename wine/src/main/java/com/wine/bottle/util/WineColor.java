@@ -1,4 +1,4 @@
-package com.wine.util;
+package com.wine.bottle.util;
 
 public enum WineColor {
 
