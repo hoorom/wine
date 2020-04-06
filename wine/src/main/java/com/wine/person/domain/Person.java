@@ -1,4 +1,4 @@
-package com.wine.bottle.domain;
+package com.wine.person.domain;
 
 import java.util.List;
 
@@ -7,24 +7,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.wine.bottle.domain.Cellar;
+
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
-@Entity	
+@Entity
 @ToString
 @EqualsAndHashCode
 /**
- * Cave
+ * Utilisateur
  */
-public class Cellar {
+public class Person {
 
 	@Id
-    @GeneratedValue
+	@GeneratedValue
 	private Long id;
 
-	private String name;
-	
-	@OneToMany(mappedBy="cellar")
-	private List<Bottle> bottles;
+	private String firstName;
+
+	private String lastName;
+
+	@OneToMany(mappedBy = "person")
+	private List<Cellar> cellars;
 
 }
