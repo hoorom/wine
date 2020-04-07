@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.wine.bottle.domain.Bottle;
 import com.wine.bottle.form.BottleForm;
 import com.wine.bottle.service.BottleService;
+import com.wine.bottle.util.BottleSize;
 
 @SpringBootApplication
 @Controller
@@ -45,9 +46,11 @@ public class WineApplication {
 			@ModelAttribute("bottleForm") BottleForm bottleForm) {
 
 		String name = bottleForm.getName();
+		BottleSize size = bottleForm.getSize();
 
 		Bottle bottle = new Bottle();
 		bottle.setName(name);
+		bottle.setSize(size);
 
 		bottleService.createBottle(bottle);
 

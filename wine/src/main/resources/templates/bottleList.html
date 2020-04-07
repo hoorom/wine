@@ -13,10 +13,11 @@
          <table border="1">
             <tr>
                <th>Nom</th>
+               <th>Taille</th>
             </tr>
             <tr th:each ="bottle : ${bottles}">
                <td th:utext="${bottle.name}" />
-               <td th:utext="${bottle.id}" />
+               <td th:utext="${bottle.size}" />
                <td>
                 <a th:href="@{'/bottleList/removeBottle/' + ${bottle.id}}" class="btn btn-danger" >Boire</a>
                </td>

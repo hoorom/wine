@@ -1,20 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8" />
-      <title>Ajouter une bouteille</title>
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-   </head>
-   <body>
-      <h1>Ajouter une bouteille :</h1>
-       
-      <form th:action="@{/bottleList/addBottle}"
-         th:object="${bottleForm}" method="POST">
-         Nom :
-         <input type="text" th:field="*{name}" />    
-         <br/>
-         <input type="submit" value="Ajouter" />
-      </form>
-       
-   </body>
+<head>
+<meta charset="UTF-8" />
+<title>Ajouter une bouteille</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<h1>Ajouter une bouteille :</h1>
+
+	<form th:action="@{/bottleList/addBottle}" th:object="${bottleForm}"
+		method="POST">
+		Nom : <input type="text" th:field="*{name}" /> <br />
+		 <select name="size">
+			<option th:each="size : ${T(com.wine.bottle.util.BottleSize).values()}"
+				th:value="${size}" th:text="${size}"></option>
+		</select> <br /> <input type="submit" value="Ajouter" />
+	</form>
+
+</body>
 </html>

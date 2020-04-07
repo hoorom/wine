@@ -1,16 +1,19 @@
 package com.wine.bottle.form;
 
+import com.wine.bottle.util.BottleSize;
+
+import lombok.Getter;
+import lombok.Setter;
+
 public class BottleForm {
-	
+
+	@Getter
+	@Setter
 	private String name;
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
 	
+	
+	@Getter
+	@Setter
+	private BottleSize size;
 	
 }
