@@ -1,4 +1,4 @@
-package com.wine.domain;
+package com.wine.bottle.domain;
 
 import org.junit.jupiter.api.Test;
 
