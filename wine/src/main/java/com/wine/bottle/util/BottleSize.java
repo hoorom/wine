@@ -4,4 +4,5 @@ public enum BottleSize {
 
 	NORMAL,
 	MAGNUM
+
 }
