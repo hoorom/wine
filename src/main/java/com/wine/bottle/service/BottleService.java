@@ -10,4 +10,6 @@ public interface BottleService {
 	public abstract void updateBottle(Long id, Bottle bottle);
 	public abstract void deleteBottle(Long id);
 	public abstract Collection<Bottle> getBottles();
+
+	public abstract Collection<Bottle> getFullBottles();
 }

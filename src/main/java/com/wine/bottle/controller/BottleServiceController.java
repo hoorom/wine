@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wine.bottle.domain.Bottle;
 import com.wine.bottle.form.BottleForm;
+import com.wine.bottle.repository.BottleRepository;
 import com.wine.bottle.service.BottleService;
 import com.wine.bottle.util.BottleSize;
+import com.wine.bottle.util.BottleStatus;
 
 @Controller
 public class BottleServiceController {
@@ -19,9 +21,12 @@ public class BottleServiceController {
 	@Autowired
 	BottleService bottleService;
 
+	@Autowired
+	BottleRepository bottleRepository;
+
 	@RequestMapping(value = { "/bottleList" }, method = RequestMethod.GET)
 	public String bottleList(Model model) {
-		model.addAttribute("bottles", bottleService.getBottles());
+		model.addAttribute("fullBottles", bottleService.getFullBottles());
 		return "bottleList";
 	}
 
@@ -42,16 +47,19 @@ public class BottleServiceController {
 		Bottle bottle = new Bottle();
 		bottle.setName(name);
 		bottle.setSize(size);
+		bottle.setStatus(BottleStatus.FULL);
 
 		bottleService.createBottle(bottle);
 
 		return "redirect:/bottleList";
 	}
 
-	@RequestMapping(value = "/bottleList/removeBottle/{bottleId}", method = RequestMethod.GET)
-	public String handleDeleteUser(@PathVariable String bottleId) {
+	@RequestMapping(value = "/bottleList/drinkBottle/{bottleId}", method = RequestMethod.GET)
+	public String drinkBottle(@PathVariable String bottleId) {
 		Long id = Long.valueOf(bottleId);
-		bottleService.deleteBottle(id);
+		Bottle bottle = bottleRepository.getOne(id);
+		bottle.setStatus(BottleStatus.EMPTY);
+		bottleService.updateBottle(id, bottle);
 		return "redirect:/bottleList";
 	}
 }

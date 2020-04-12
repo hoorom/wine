@@ -1,6 +1,8 @@
 package com.wine.bottle.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -42,6 +44,7 @@ public class Bottle {
 	private Integer vintage;
 	
 	@Getter @Setter
+	@Enumerated(EnumType.STRING)
 	private BottleStatus status;
 	
 	@Getter @Setter
