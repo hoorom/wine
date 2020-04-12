@@ -33,20 +33,35 @@ public class Bottle {
     @JoinColumn(name="cellar_id")
 	private Cellar cellar;
 	
+	/**
+	 * Le vin contenu
+	 */
 	@ManyToOne
 	@JoinColumn(name="wine_id")
 	private Wine wine;
 
+	/**
+	 * Le nom
+	 */
 	@Getter @Setter
 	private String name;
 	
+	/**
+	 * Le millésime
+	 */
 	@Getter @Setter
 	private Integer vintage;
 	
+	/**
+	 * Le statut
+	 */
 	@Getter @Setter
 	@Enumerated(EnumType.STRING)
 	private BottleStatus status;
 	
+	/**
+	 * La taille
+	 */
 	@Getter @Setter
 	private BottleSize size;
 	

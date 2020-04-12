@@ -16,6 +16,9 @@ import com.wine.bottle.util.BottleSize;
 import com.wine.bottle.util.BottleStatus;
 
 @Controller
+/**
+ * Controller relatif aux actions sur les bouteilles
+ */
 public class BottleServiceController {
 
 	@Autowired
@@ -24,12 +27,18 @@ public class BottleServiceController {
 	@Autowired
 	BottleRepository bottleRepository;
 
+	/**
+	 * Liste des bouteilles pleines
+	 */
 	@RequestMapping(value = { "/bottleList" }, method = RequestMethod.GET)
-	public String bottleList(Model model) {
+	public String fullBottleList(Model model) {
 		model.addAttribute("fullBottles", bottleService.getFullBottles());
 		return "bottleList";
 	}
 
+	/**
+	 * Redirection vers la page d'ajout de bouteille
+	 */
 	@RequestMapping(value = { "/addBottle" }, method = RequestMethod.GET)
 	public String showAddBottle(Model model) {
 		BottleForm bottleForm = new BottleForm();
@@ -38,6 +47,9 @@ public class BottleServiceController {
 		return "addBottle";
 	}
 
+	/**
+	 * Création d'une bouteille
+	 */
 	@RequestMapping(value = { "/bottleList/addBottle" }, method = RequestMethod.POST)
 	public String addBottle(Model model, @ModelAttribute("bottleForm") BottleForm bottleForm) {
 
@@ -54,6 +66,9 @@ public class BottleServiceController {
 		return "redirect:/bottleList";
 	}
 
+	/**
+	 * Boire une bouteille
+	 */
 	@RequestMapping(value = "/bottleList/drinkBottle/{bottleId}", method = RequestMethod.GET)
 	public String drinkBottle(@PathVariable String bottleId) {
 		Long id = Long.valueOf(bottleId);

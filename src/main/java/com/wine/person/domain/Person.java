@@ -10,24 +10,39 @@ import javax.persistence.OneToMany;
 import com.wine.bottle.domain.Cellar;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@ToString
-@EqualsAndHashCode
 /**
  * Utilisateur
  */
+@Entity
+@ToString
+@EqualsAndHashCode
 public class Person {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
+	/**
+	 * Prénom
+	 */
+	@Getter
+	@Setter
 	private String firstName;
 
+	/**
+	 * Nom de famille
+	 */
+	@Getter
+	@Setter
 	private String lastName;
 
+	/**
+	 * Caves possedees
+	 */
 	@OneToMany(mappedBy = "person")
 	private List<Cellar> cellars;
 

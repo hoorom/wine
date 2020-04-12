@@ -1,7 +1,20 @@
 package com.wine.bottle.util;
 
+/**
+ * Statut des bouteilles
+ */
 public enum BottleStatus {
 
+	/**
+	 * Remplie
+	 */
 	FULL,
-	EMPTY
+	/**
+	 * Vide
+	 */
+	EMPTY,
+	/**
+	 * Désirée
+	 */
+	WISHED
 }

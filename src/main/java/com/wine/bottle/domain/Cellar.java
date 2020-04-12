@@ -22,8 +22,14 @@ public class Cellar {
     @GeneratedValue
 	private Long id;
 
+	/**
+	 * Nom
+	 */
 	private String name;
 	
+	/**
+	 * Bouteilles rangées dedans
+	 */
 	@OneToMany(mappedBy="cellar")
 	private List<Bottle> bottles;
 

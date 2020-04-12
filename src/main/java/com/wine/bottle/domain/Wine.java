@@ -11,6 +11,9 @@ import com.wine.bottle.util.WineColor;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
+/**
+ * Vin
+ */
 @Entity
 @ToString
 @EqualsAndHashCode
@@ -20,6 +23,9 @@ public class Wine {
 	@Id
 	private Long id;
 	
+	/**
+	 * Couleur du vin
+	 */
 	@Enumerated(EnumType.STRING)
 	private WineColor color;
 	

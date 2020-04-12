@@ -5,6 +5,9 @@ import com.wine.bottle.util.BottleSize;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Forme relatif aux bouteilles
+ */
 public class BottleForm {
 
 	@Getter
