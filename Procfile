@@ -1,1 +1,2 @@
-web: gradlew bootRun
+heroku ps:scale web=1
+#web: gradlew bootRun
