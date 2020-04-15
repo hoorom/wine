@@ -22,7 +22,7 @@
 		<br />
 		Quantité : <input type="number" th:field="*{quantity}" /> 
 		<br />
-		Appélation : <select name="size">
+		Appélation : <select name="label">
 			<option
 				th:each="label : ${T(com.wine.bottle.util.WineLabel).values()}"
 				th:value="${label}" th:text="${label}" />
@@ -30,7 +30,7 @@
 		<br />
 		Domaine : <input type="text" th:field="*{domain}" /> 
 		<br />
-		Couleur : <select name="size">
+		Couleur : <select name="color">
 			<option
 				th:each="color : ${T(com.wine.bottle.util.WineColor).values()}"
 				th:value="${color}" th:text="${color}" />

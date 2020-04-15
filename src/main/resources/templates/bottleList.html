@@ -7,16 +7,18 @@
    </head>
    <body>
       <h1>Ma cave</h1>
-      <a href="addBottle">Ajouter une bouteille</a>
+      <a href="/bottle">Ajouter une bouteille</a>
       <br/><br/>
       <div>
          <table border="1">
             <tr>
                <th th:utext="#{bottle.name}" />
+               <th th:utext="#{wine.color}" />
                <th th:utext="#{bottle.size}" />
             </tr>
             <tr th:each ="bottle : ${fullBottles}">
                <td th:utext="${bottle.name}" />
+               <td th:utext="${bottle.wine.color}" />
                <td th:utext="#{${bottle.size}}" />
                <td>
                 <a th:href="@{'/bottleList/drinkBottle/' + ${bottle.id}}" class="btn btn-danger" >Boire</a>

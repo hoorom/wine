@@ -7,12 +7,12 @@ import com.wine.bottle.domain.Bottle;
 public interface BottleService {
 
 	/**
-	 * Créer une bouteille
+	 * Creer une bouteille
 	 */
 	public abstract void createBottle(Bottle bottle);
 
 	/**
-	 * Mise à jour
+	 * Mise a jour
 	 */
 	public abstract void updateBottle(Long id, Bottle bottle);
 

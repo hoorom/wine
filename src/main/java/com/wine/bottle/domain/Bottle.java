@@ -1,8 +1,10 @@
 package com.wine.bottle.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -29,6 +31,8 @@ public class Bottle {
     @Getter @Setter
 	private Long id;
 	
+	@Getter
+	@Setter
 	@ManyToOne
     @JoinColumn(name="cellar_id")
 	private Cellar cellar;
@@ -36,7 +40,9 @@ public class Bottle {
 	/**
 	 * Le vin contenu
 	 */
-	@ManyToOne
+	@Getter
+	@Setter
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="wine_id")
 	private Wine wine;
 
@@ -47,7 +53,7 @@ public class Bottle {
 	private String name;
 	
 	/**
-	 * Le millésime
+	 * Le millesime
 	 */
 	@Getter @Setter
 	private Integer vintage;

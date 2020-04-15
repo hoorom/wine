@@ -16,10 +16,13 @@ import com.wine.bottle.service.BottleService;
 import com.wine.bottle.util.BottleSize;
 import com.wine.bottle.util.BottleStatus;
 
-@Controller
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Controller relatif aux actions sur les bouteilles
  */
+@Controller
+@Slf4j
 public class BottleServiceController {
 
 	@Autowired
@@ -40,11 +43,11 @@ public class BottleServiceController {
 	/**
 	 * Redirection vers la page d'ajout de bouteille
 	 */
-	@RequestMapping(value = { "/addBottle" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/bottle" }, method = RequestMethod.GET)
 	public String showAddBottle(Model model) {
 		BottleForm bottleForm = new BottleForm();
 		model.addAttribute("bottleForm", bottleForm);
-		return "addBottle";
+		return "bottle";
 	}
 
 	/**
@@ -63,6 +66,8 @@ public class BottleServiceController {
 
 		Wine wine = new Wine();
 		wine.setColor(bottleForm.getColor());
+
+		bottle.setWine(wine);
 
 		bottleService.createBottle(bottle);
 

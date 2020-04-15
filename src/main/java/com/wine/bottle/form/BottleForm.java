@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Forme relatif aux bouteilles
+ * Form relatif aux bouteilles
  */
 public class BottleForm {
 
