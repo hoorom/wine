@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wine.bottle.domain.Bottle;
+import com.wine.bottle.domain.Wine;
 import com.wine.bottle.form.BottleForm;
 import com.wine.bottle.repository.BottleRepository;
 import com.wine.bottle.service.BottleService;
@@ -43,12 +44,11 @@ public class BottleServiceController {
 	public String showAddBottle(Model model) {
 		BottleForm bottleForm = new BottleForm();
 		model.addAttribute("bottleForm", bottleForm);
-
 		return "addBottle";
 	}
 
 	/**
-	 * Création d'une bouteille
+	 * Creation d'une bouteille
 	 */
 	@RequestMapping(value = { "/bottleList/addBottle" }, method = RequestMethod.POST)
 	public String addBottle(Model model, @ModelAttribute("bottleForm") BottleForm bottleForm) {
@@ -60,6 +60,9 @@ public class BottleServiceController {
 		bottle.setName(name);
 		bottle.setSize(size);
 		bottle.setStatus(BottleStatus.FULL);
+
+		Wine wine = new Wine();
+		wine.setColor(bottleForm.getColor());
 
 		bottleService.createBottle(bottle);
 

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import com.wine.bottle.util.WineColor;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 /**
@@ -26,6 +28,8 @@ public class Wine {
 	/**
 	 * Couleur du vin
 	 */
+	@Getter
+	@Setter
 	@Enumerated(EnumType.STRING)
 	private WineColor color;
 	
