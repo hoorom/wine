@@ -1,2 +1,2 @@
 #heroku ps:scale web=1
-#web: gradlew bootRun
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/demo-0.0.1-SNAPSHOT.jar
