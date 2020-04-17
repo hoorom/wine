@@ -27,7 +27,7 @@ public class Person {
 	private Long id;
 
 	/**
-	 * Prénom
+	 * Prenom
 	 */
 	@Getter
 	@Setter
@@ -43,7 +43,7 @@ public class Person {
 	/**
 	 * Caves possedees
 	 */
-	@OneToMany(mappedBy = "person")
+	@OneToMany(targetEntity = Cellar.class, mappedBy = "person")
 	private List<Cellar> cellars;
 
 }

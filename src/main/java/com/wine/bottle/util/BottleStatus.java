@@ -14,7 +14,7 @@ public enum BottleStatus {
 	 */
 	EMPTY,
 	/**
-	 * Désirée
+	 * Desiree
 	 */
 	WISHED
 }
