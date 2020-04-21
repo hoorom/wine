@@ -1,9 +1,15 @@
 package com.wine.auth.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.wine.person.domain.Person;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -31,5 +37,10 @@ public class User {
 	@Getter @Setter
 	private String password;
 	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "person_id")
+	@Getter
+	@Setter
+	private Person person;
 	
 }

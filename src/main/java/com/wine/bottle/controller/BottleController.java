@@ -1,6 +1,8 @@
 package com.wine.bottle.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Controller
 @Slf4j
-public class BottleServiceController {
+public class BottleController {
 
 	@Autowired
 	BottleService bottleService;
@@ -68,6 +70,9 @@ public class BottleServiceController {
 		wine.setColor(bottleForm.getColor());
 
 		bottle.setWine(wine);
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		log.info(auth.toString());
 
 		bottleService.createBottle(bottle);
 

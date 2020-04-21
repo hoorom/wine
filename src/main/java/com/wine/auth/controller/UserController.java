@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.wine.auth.form.UserForm;
 import com.wine.auth.model.User;
 import com.wine.auth.service.SecurityService;
 import com.wine.auth.service.UserService;
@@ -28,30 +29,29 @@ public class UserController {
 
 	@GetMapping("/registration")
 	public String registration(Model model) {
-		model.addAttribute("userForm", new User());
+		model.addAttribute("userForm", new UserForm());
 
 		return "registration";
 	}
 
 	@PostMapping("/registration")
-	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
+	public String registration(@ModelAttribute("userForm") UserForm userForm, BindingResult bindingResult) {
 //        userValidator.validate(userForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
 			return "registration";
 		}
 
-		userService.save(userForm);
+		User user = userForm.createObject();
+		userService.save(user);
 
-		securityService.autoLogin(userForm.getUsername(), userForm.getPassword());
+		securityService.autoLogin(user.getUsername(), user.getPassword());
 
 		return "redirect:/welcome";
 	}
 
 	@GetMapping("/login")
 	public String login(Model model, String error, String logout) {
-		System.out.println("login");
-		log.info("login");
 		if (error != null)
 			model.addAttribute("error", "Your username and password is invalid.");
 
