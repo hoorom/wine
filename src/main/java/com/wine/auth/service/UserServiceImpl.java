@@ -9,6 +9,7 @@ import com.wine.auth.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
+
 	@Autowired
 	private UserRepository userRepository;
 

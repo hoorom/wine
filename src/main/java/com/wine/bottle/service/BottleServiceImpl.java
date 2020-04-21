@@ -12,10 +12,7 @@ import com.wine.bottle.domain.Bottle;
 import com.wine.bottle.repository.BottleRepository;
 import com.wine.bottle.util.BottleStatus;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Service
-@Slf4j
 public class BottleServiceImpl implements BottleService {
 
 	@Autowired

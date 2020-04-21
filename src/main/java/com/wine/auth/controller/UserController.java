@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.wine.auth.form.UserForm;
+import com.wine.auth.form.UserValidator;
 import com.wine.auth.model.User;
 import com.wine.auth.service.SecurityService;
 import com.wine.auth.service.UserService;
@@ -18,14 +19,15 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 @Slf4j
 public class UserController {
+
 	@Autowired
 	private UserService userService;
 
 	@Autowired
 	private SecurityService securityService;
 
-//    @Autowired
-//    private UserValidator userValidator;
+	@Autowired
+	private UserValidator userValidator;
 
 	@GetMapping("/registration")
 	public String registration(Model model) {
@@ -36,7 +38,7 @@ public class UserController {
 
 	@PostMapping("/registration")
 	public String registration(@ModelAttribute("userForm") UserForm userForm, BindingResult bindingResult) {
-//        userValidator.validate(userForm, bindingResult);
+		userValidator.validate(userForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
 			return "registration";

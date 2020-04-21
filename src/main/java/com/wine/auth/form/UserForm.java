@@ -1,17 +1,27 @@
 package com.wine.auth.form;
 
-import org.springframework.validation.Errors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import com.wine.auth.factory.UserFactory;
 import com.wine.auth.model.User;
+import com.wine.auth.service.UserService;
 import com.wine.frmwrk.factory.AbstractFactory;
 import com.wine.frmwrk.form.WineCreationForm;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
+@Component
+@Slf4j
 public class UserForm implements WineCreationForm<User> {
 	
+	@Qualifier("userServiceImpl")
+	@Autowired
+	private UserService userService;
+
 	@Getter @Setter
 	private String username;
 	
@@ -20,17 +30,7 @@ public class UserForm implements WineCreationForm<User> {
 
 	@Getter
 	@Setter
-	private String confirmPassword;
-
-	@Override
-	public boolean supports(Class<?> clazz) {
-		return User.class.equals(clazz);
-	}
-
-	@Override
-	public void validate(Object o, Errors errors) {
-		// TODO Auto-generated method stub
-	}
+	private String passwordConfirm;
 
 	@Override
 	public User createObject() {
@@ -42,5 +42,5 @@ public class UserForm implements WineCreationForm<User> {
 	public AbstractFactory<User> getFactory() {
 		return new UserFactory();
 	}
-	
+
 }
