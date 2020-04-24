@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 
 import com.wine.person.domain.Person;
 
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,6 +20,7 @@ import lombok.ToString;
 @Entity	
 @ToString
 @EqualsAndHashCode
+@Builder
 /**
  * Cave
  */

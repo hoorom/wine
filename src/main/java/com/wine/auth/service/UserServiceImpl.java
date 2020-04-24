@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.wine.auth.model.User;
+import com.wine.auth.domain.User;
 import com.wine.auth.repository.UserRepository;
 
 @Service

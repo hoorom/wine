@@ -1,6 +1,6 @@
 package com.wine.auth.service;
 
-import com.wine.auth.model.User;
+import com.wine.auth.domain.User;
 
 public interface UserService {
 	void save(User user);

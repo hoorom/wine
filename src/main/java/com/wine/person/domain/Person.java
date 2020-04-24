@@ -44,6 +44,8 @@ public class Person {
 	 * Caves possedees
 	 */
 	@OneToMany(targetEntity = Cellar.class, mappedBy = "person")
+	@Getter
+	@Setter
 	private List<Cellar> cellars;
 
 }

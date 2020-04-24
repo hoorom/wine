@@ -8,16 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.wine.auth.domain.User;
 import com.wine.auth.form.UserForm;
 import com.wine.auth.form.UserValidator;
-import com.wine.auth.model.User;
 import com.wine.auth.service.SecurityService;
 import com.wine.auth.service.UserService;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Controller
-@Slf4j
 public class UserController {
 
 	@Autowired
@@ -49,7 +46,7 @@ public class UserController {
 
 		securityService.autoLogin(user.getUsername(), user.getPassword());
 
-		return "redirect:/dashboard";
+		return "redirect:/login";
 	}
 
 	@GetMapping("/login")

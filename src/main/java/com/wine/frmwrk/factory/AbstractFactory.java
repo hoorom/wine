@@ -7,5 +7,8 @@ import com.wine.frmwrk.form.WineCreationForm;
  */
 public abstract class AbstractFactory<T> {
 
+	public abstract T createObject();
+
 	public abstract T createObject(WineCreationForm<T> creationForm);
+
 }

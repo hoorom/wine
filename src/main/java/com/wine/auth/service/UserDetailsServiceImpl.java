@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.wine.auth.model.User;
+import com.wine.auth.domain.User;
 import com.wine.auth.repository.UserRepository;
 
 @Service

@@ -1,4 +1,4 @@
-package com.wine.auth.model;
+package com.wine.auth.domain;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
