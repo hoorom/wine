@@ -5,10 +5,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.wine.bottle.domain.Bottle;
 import com.wine.bottle.domain.Wine;
@@ -36,7 +36,7 @@ public class BottleController {
 	/**
 	 * Liste des bouteilles pleines
 	 */
-	@RequestMapping(value = { "/bottleList" }, method = RequestMethod.GET)
+	@GetMapping(value = { "/bottleList" })
 	public String fullBottleList(Model model) {
 		model.addAttribute("fullBottles", bottleService.getFullBottles());
 		return "bottleList";
@@ -45,7 +45,7 @@ public class BottleController {
 	/**
 	 * Redirection vers la page d'ajout de bouteille
 	 */
-	@RequestMapping(value = { "/bottle" }, method = RequestMethod.GET)
+	@GetMapping(value = { "/bottle" })
 	public String showAddBottle(Model model) {
 		BottleForm bottleForm = new BottleForm();
 		model.addAttribute("bottleForm", bottleForm);
@@ -55,7 +55,7 @@ public class BottleController {
 	/**
 	 * Creation d'une bouteille
 	 */
-	@RequestMapping(value = { "/bottleList/addBottle" }, method = RequestMethod.POST)
+	@PostMapping(value = { "/bottleList/addBottle" })
 	public String addBottle(Model model, @ModelAttribute("bottleForm") BottleForm bottleForm) {
 
 		String name = bottleForm.getName();
@@ -82,7 +82,7 @@ public class BottleController {
 	/**
 	 * Boire une bouteille
 	 */
-	@RequestMapping(value = "/bottleList/drinkBottle/{bottleId}", method = RequestMethod.GET)
+	@GetMapping(value = "/bottleList/drinkBottle/{bottleId}")
 	public String drinkBottle(@PathVariable String bottleId) {
 		Long id = Long.valueOf(bottleId);
 		Bottle bottle = bottleRepository.getOne(id);

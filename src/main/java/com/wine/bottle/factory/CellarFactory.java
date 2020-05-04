@@ -8,7 +8,7 @@ public class CellarFactory extends AbstractFactory<Cellar> {
 
 	@Override
 	public Cellar createObject() {
-		Cellar cellar = Cellar.builder().build();
+		Cellar cellar = new Cellar();
 		return cellar;
 	}
 

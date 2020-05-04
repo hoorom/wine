@@ -1,5 +1,7 @@
 package com.wine.person.factory;
 
+import java.util.HashSet;
+
 import com.wine.bottle.domain.Cellar;
 import com.wine.frmwrk.factory.AbstractFactory;
 import com.wine.frmwrk.form.WineCreationForm;
@@ -18,7 +20,10 @@ public class PersonFactory extends AbstractFactory<Person> {
 	@Override
 	public Person createObject() {
 		Person person = new Person();
-		Cellar.builder().person(person).name("Defaut");
+		person.setCellars(new HashSet<Cellar>());
+		Cellar cellar = new Cellar();
+		cellar.setName("Defaut");
+		person.getCellars().add(cellar);
 		return person;
 	}
 

@@ -60,9 +60,4 @@ public class UserController {
 		return "login";
 	}
 
-	@GetMapping("/dashboard")
-	public String dashboard(Model model) {
-		return "dashboard";
-	}
-
 }

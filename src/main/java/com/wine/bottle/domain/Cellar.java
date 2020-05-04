@@ -9,9 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.wine.bottle.util.CellarType;
 import com.wine.person.domain.Person;
 
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,7 +20,6 @@ import lombok.ToString;
 @Entity	
 @ToString
 @EqualsAndHashCode
-@Builder
 /**
  * Cave
  */
@@ -50,5 +49,12 @@ public class Cellar {
 	@ManyToOne
 	@JoinColumn(name = "person_id")
 	private Person person;
+
+	/**
+	 * Type de cave
+	 */
+	@Getter
+	@Setter
+	private CellarType type;
 
 }

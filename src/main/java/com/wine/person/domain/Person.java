@@ -1,7 +1,8 @@
 package com.wine.person.domain;
 
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -34,7 +35,7 @@ public class Person {
 	private String firstName;
 
 	/**
-	 * Nom de famille
+	 * Nom
 	 */
 	@Getter
 	@Setter
@@ -43,9 +44,9 @@ public class Person {
 	/**
 	 * Caves possedees
 	 */
-	@OneToMany(targetEntity = Cellar.class, mappedBy = "person")
+	@OneToMany(targetEntity = Cellar.class, mappedBy = "person", orphanRemoval = true, cascade = CascadeType.ALL)
 	@Getter
 	@Setter
-	private List<Cellar> cellars;
+	private Set<Cellar> cellars;
 
 }
