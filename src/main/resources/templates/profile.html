@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title th:utext="#{profile}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<div th:replace="/includes/header :: header"></div>
+	<h1>Moi</h1>
+	<br />
+	<br />
+	<div>
+		<th th:utext="${person.firstName}" />
+		<th th:utext="${person.lastName}" />
+	</div>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.wine.person.domain;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -40,6 +41,13 @@ public class Person {
 	@Getter
 	@Setter
 	private String lastName;
+
+	/**
+	 * Date de naissance
+	 */
+	@Getter
+	@Setter
+	private Date birthdate;
 
 	/**
 	 * Caves possedees

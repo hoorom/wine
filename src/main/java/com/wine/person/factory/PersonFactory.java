@@ -20,6 +20,7 @@ public class PersonFactory extends AbstractFactory<Person> {
 	@Override
 	public Person createObject() {
 		Person person = new Person();
+		person.setFirstName("test");
 		person.setCellars(new HashSet<Cellar>());
 		Cellar cellar = new Cellar();
 		cellar.setName("Defaut");

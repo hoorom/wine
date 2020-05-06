@@ -1,7 +1,10 @@
 package com.wine.auth.form;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import com.wine.auth.domain.User;
@@ -24,6 +27,19 @@ public class UserForm implements WineCreationForm<User> {
 	private String username;
 	
 	@Getter @Setter
+	private String firstName;
+
+	@Getter
+	@Setter
+	private String lastName;
+
+	@Getter
+	@Setter
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date birthdate;
+
+	@Getter
+	@Setter
 	private String password;
 
 	@Getter

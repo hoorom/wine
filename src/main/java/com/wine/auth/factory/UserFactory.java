@@ -19,7 +19,7 @@ public class UserFactory extends AbstractFactory<User> {
 		user.setUsername(userForm.getUsername());
 		user.setPassword(userForm.getPassword());
 
-		Person person = createUserPerson();
+		Person person = createUserPerson(userForm);
 		user.setPerson(person);
 
 		return user;
@@ -28,9 +28,12 @@ public class UserFactory extends AbstractFactory<User> {
 	/**
 	 * Creation de la personne associee a l utilisateur
 	 */
-	private Person createUserPerson() {
+	private Person createUserPerson(UserForm userForm) {
 		PersonFactory personFactory = new PersonFactory();
 		Person person = personFactory.createObject();
+		person.setFirstName(userForm.getFirstName());
+		person.setLastName(userForm.getLastName());
+		person.setBirthdate(userForm.getBirthdate());
 		return person;
 	}
 
