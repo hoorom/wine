@@ -14,37 +14,62 @@
 		<form method="POST" th:object="${userForm}"
 			th:action="@{/registration}">
 			<h2 class="form-signin-heading">Créer votre compte</h2>
-			
-			<div>
-				<label for="firstName" th:utext="#{registration.firstName}" /><input type="text"  th:field="*{firstName}"></input>
-			</div>
-			<span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" th:errorclass="fieldError">FirstName Error</span>
-			
-			<div>
-				<label for="lastName" th:utext="#{registration.lastName}" /><input type="text"  th:field="*{lastName}"></input>
-			</div>
-			<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" th:errorclass="fieldError">LastName Error</span>
-			
-			<div>
-				<label for="birthdate" th:utext="#{registration.birthdate}" /><input type="date"  th:field="*{birthdate}"></input>
-			</div>
-			<span th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}" th:errorclass="fieldError">Birthdate Error</span>
-			
-			<div>
-				<label for="username" th:utext="#{registration.username}" /><input type="text"  th:field="*{username}"></input>
-			</div>
-			<span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:errorclass="fieldError">Username Error</span>
+
+			<div th:each="civility : ${T(com.wine.person.util.Civility).values()}">
+                <div>
+                    <input type="radio" th:field="*{civility}" th:value="${civility}" >
+                    <label th:for="${#ids.prev('civility')}" th:text="${civility}">civility</label>
+                </div>
+            </div>
 
 			<div>
-				<label for="password" th:utext="#{registration.password}" /><input type="password" th:field="*{password}"></input>
+				<label for="firstName" th:utext="#{registration.firstName}" /><input
+					type="text" th:field="*{firstName}"></input>
 			</div>
-			<span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:errorclass="fieldError">Password Error</span>
+			<span th:if="${#fields.hasErrors('firstName')}"
+				th:errors="*{firstName}" th:errorclass="fieldError">FirstName
+				Error</span>
 
 			<div>
-				<label for="passwordConfirm" th:utext="#{registration.passwordConfirm}" /><input type="password" th:field="*{passwordConfirm}"></input>
+				<label for="lastName" th:utext="#{registration.lastName}" /><input
+					type="text" th:field="*{lastName}"></input>
+			</div>
+			<span th:if="${#fields.hasErrors('lastName')}"
+				th:errors="*{lastName}" th:errorclass="fieldError">LastName
+				Error</span>
+
+			<div>
+				<label for="birthdate" th:utext="#{registration.birthdate}" /><input
+					type="date" th:field="*{birthdate}"></input>
+			</div>
+			<span th:if="${#fields.hasErrors('birthdate')}"
+				th:errors="*{birthdate}" th:errorclass="fieldError">Birthdate
+				Error</span>
+
+			<div>
+				<label for="username" th:utext="#{registration.username}" /><input
+					type="text" th:field="*{username}"></input>
+			</div>
+			<span th:if="${#fields.hasErrors('username')}"
+				th:errors="*{username}" th:errorclass="fieldError">Username
+				Error</span>
+
+			<div>
+				<label for="password" th:utext="#{registration.password}" /><input
+					type="password" th:field="*{password}"></input>
+			</div>
+			<span th:if="${#fields.hasErrors('password')}"
+				th:errors="*{password}" th:errorclass="fieldError">Password
+				Error</span>
+
+			<div>
+				<label for="passwordConfirm"
+					th:utext="#{registration.passwordConfirm}" /><input
+					type="password" th:field="*{passwordConfirm}"></input>
 			</div>
 
-			<button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{registration.create}"></button>
+			<button class="btn btn-lg btn-primary btn-block" type="submit"
+				th:text="#{registration.create}"></button>
 		</form>
 
 	</div>

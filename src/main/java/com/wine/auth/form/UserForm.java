@@ -12,6 +12,7 @@ import com.wine.auth.factory.UserFactory;
 import com.wine.auth.service.UserService;
 import com.wine.frmwrk.factory.AbstractFactory;
 import com.wine.frmwrk.form.WineCreationForm;
+import com.wine.person.util.Civility;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,10 @@ public class UserForm implements WineCreationForm<User> {
 	private String username;
 	
 	@Getter @Setter
+	private Civility civility;
+
+	@Getter
+	@Setter
 	private String firstName;
 
 	@Getter
