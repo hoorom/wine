@@ -15,12 +15,11 @@
 			th:action="@{/registration}">
 			<h2 class="form-signin-heading">Créer votre compte</h2>
 
-			<div th:each="civility : ${T(com.wine.person.util.Civility).values()}">
-                <div>
-                    <input type="radio" th:field="*{civility}" th:value="${civility}" >
-                    <label th:for="${#ids.prev('civility')}" th:text="${civility}">civility</label>
-                </div>
-            </div>
+			<div
+				th:each="civility : ${T(com.wine.person.util.Civility).values()}">
+				<input type="radio" th:field="*{civility}" th:value="${civility}">
+				<label th:for="${#ids.prev('civility')}" th:text="${civility}">civility</label>
+			</div>
 
 			<div>
 				<label for="firstName" th:utext="#{registration.firstName}" /><input
