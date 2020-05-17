@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
 <body>
+<div th:replace="/includes/header :: header"></div>
 	<h1>Ajouter une bouteille :</h1>
 
 	<form th:action="@{/bottleList/addBottle}" th:object="${bottleForm}"

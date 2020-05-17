@@ -31,6 +31,7 @@ public class UserFactory extends AbstractFactory<User> {
 	private Person createUserPerson(UserForm userForm) {
 		PersonFactory personFactory = new PersonFactory();
 		Person person = personFactory.createObject();
+		person.setCivility(userForm.getCivility());
 		person.setFirstName(userForm.getFirstName());
 		person.setLastName(userForm.getLastName());
 		person.setBirthdate(userForm.getBirthdate());

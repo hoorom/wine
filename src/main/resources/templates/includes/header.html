@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8" />
 <body>
 	<header>
 		<nav>
-			<a href="/dashboard" th:utext="#{home.dashboard}"></a> 
-			<a href="/profile" th:utext="#{profile.myAccount}"></a>
-			<a href="/logout" th:utext="#{auth.logout}"></a>
+			<a href="/dashboard" th:utext="#{header.dashboard}"></a> 
+			<a href="/bottleList" th:utext="#{header.bottleList}"></a> 
+			<a href="/profile" th:utext="#{header.myAccount}"></a>
+			<a href="/logout" th:utext="#{header.logout}"></a>
 		</nav>
 	</header>
 </body>

@@ -3,8 +3,8 @@
 	xmlns:th="https://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<meta charset="iso-8859-1">
-<title>Créer votre compte</title>
+<meta charset="UTF-8" />
+<title>CrÃ©er votre compte</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 
 		<form method="POST" th:object="${userForm}"
 			th:action="@{/registration}">
-			<h2 class="form-signin-heading">Créer votre compte</h2>
+			<h2 class="form-signin-heading">CrÃ©er votre compte</h2>
 
 			<div
 				th:each="civility : ${T(com.wine.person.util.Civility).values()}">

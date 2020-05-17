@@ -7,10 +7,10 @@
 </head>
 <body>
 	<div th:replace="/includes/header :: header"></div>
-	<h1>Moi</h1>
-	<br />
+	<h1>Mon compte</h1>
 	<br />
 	<div>
+	<th th:utext="${person.firstName}" />
 		<th th:utext="${person.firstName}" />
 		<th th:utext="${person.lastName}" />
 	</div>

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.wine.bottle.domain.Cellar;
+import com.wine.person.util.Civility;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -27,6 +28,13 @@ public class Person {
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	/**
+	 * Civilite
+	 */
+	@Getter
+	@Setter
+	private Civility civility;
 
 	/**
 	 * Prenom
