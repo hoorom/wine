@@ -1,12 +1,12 @@
 package com.wine.person.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.wine.person.service.PersonService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -14,10 +14,10 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Controller
 @Slf4j
+@RequiredArgsConstructor
 public class PersonController {
 
-	@Autowired
-	private PersonService personService;
+	private final PersonService personService;
 
 	/**
 	 * Personne connectees

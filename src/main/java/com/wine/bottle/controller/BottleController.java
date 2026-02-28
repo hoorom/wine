@@ -1,6 +1,13 @@
 package com.wine.bottle.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.wine.bottle.domain.Bottle;
+import com.wine.bottle.domain.Wine;
+import com.wine.bottle.form.BottleForm;
+import com.wine.bottle.repository.BottleRepository;
+import com.wine.bottle.service.BottleService;
+import com.wine.bottle.util.BottleSize;
+import com.wine.bottle.util.BottleStatus;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -10,16 +17,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.wine.bottle.domain.Bottle;
-import com.wine.bottle.domain.Wine;
-import com.wine.bottle.form.BottleForm;
-import com.wine.bottle.repository.BottleRepository;
-import com.wine.bottle.service.BottleService;
-import com.wine.bottle.util.BottleSize;
-import com.wine.bottle.util.BottleStatus;
-
-import lombok.extern.slf4j.Slf4j;
-
 /**
  * Controller relatif aux actions sur les bouteilles
  */
@@ -27,11 +24,14 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BottleController {
 
-	@Autowired
-	BottleService bottleService;
+	final BottleService bottleService;
 
-	@Autowired
-	BottleRepository bottleRepository;
+	final BottleRepository bottleRepository;
+
+	public BottleController(BottleService bottleService, BottleRepository bottleRepository) {
+		this.bottleService = bottleService;
+		this.bottleRepository = bottleRepository;
+	}
 
 	/**
 	 * Liste des bouteilles pleines
