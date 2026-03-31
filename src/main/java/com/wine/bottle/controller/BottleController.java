@@ -71,9 +71,6 @@ public class BottleController {
 
 		bottle.setWine(wine);
 
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		log.info(auth.toString());
-
 		bottleService.createBottle(bottle);
 
 		return "redirect:/bottleList";
@@ -85,7 +82,7 @@ public class BottleController {
 	@GetMapping(value = "/bottleList/drinkBottle/{bottleId}")
 	public String drinkBottle(@PathVariable String bottleId) {
 		Long id = Long.valueOf(bottleId);
-		Bottle bottle = bottleRepository.getOne(id);
+		Bottle bottle = bottleRepository.getReferenceById(id);
 		bottle.setStatus(BottleStatus.EMPTY);
 		bottleService.updateBottle(id, bottle);
 		return "redirect:/bottleList";
