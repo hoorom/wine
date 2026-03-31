@@ -1,22 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-      <meta charset="UTF-8" />
-    <head>
-        <title>Connexion</title>
-    </head>
-    <body>
-        <div th:if="${param.error}">
-            Invalid username and password.
-        </div>
-        <div th:if="${param.logout}">
-            You have been logged out.
-        </div>
-        <form th:action="@{/login}" method="post">
-            <div><label> Adresse mail : <input type="text" name="username"/> </label></div>
-            <div><label> Mot de passe : <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="Connexion"/></div>
-        </form>
-        <a href="/registration" th:utext="#{account.registration.redirection}" ></a>
-    </body>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Connexion — Ma Cave</title>
+    <link rel="stylesheet" th:href="@{/login-app/assets/index.css}"/>
+    <script th:inline="javascript">
+        window._csrf        = /*[[${_csrf.token}]]*/ '';
+        window._csrf_header = /*[[${_csrf.headerName}]]*/ 'X-CSRF-TOKEN';
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" th:src="@{/login-app/assets/index.js}"></script>
+</body>
 </html>

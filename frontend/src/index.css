@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 20% 96%;
+    --foreground: 350 20% 12%;
+
+    --primary: 350 60% 28%;
+    --primary-foreground: 30 20% 96%;
+
+    --muted: 30 10% 90%;
+    --muted-foreground: 350 10% 45%;
+
+    --border: 30 15% 82%;
+    --input: 30 15% 82%;
+    --ring: 350 60% 28%;
+
+    --radius: 0.5rem;
+
+    --wine-dark: 350 40% 15%;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+  }
+}

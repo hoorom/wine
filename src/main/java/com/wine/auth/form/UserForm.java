@@ -1,5 +1,6 @@
 package com.wine.auth.form;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class UserForm implements WineCreationForm<User> {
 	@Getter
 	@Setter
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date birthdate;
+	private LocalDate birthdate;
 
 	@Getter
 	@Setter
