@@ -16,7 +16,7 @@ public class UserFactory extends AbstractFactory<User> {
 	public User createObject(WineCreationForm<User> wineCreationForm) {
 		UserForm userForm = (UserForm) wineCreationForm;
 		User user = new User();
-		user.setUsername(userForm.getUsername());
+		user.setUsername(userForm.getMail());
 		user.setPassword(userForm.getPassword());
 
 		Person person = createUserPerson(userForm);
@@ -40,8 +40,7 @@ public class UserFactory extends AbstractFactory<User> {
 
 	@Override
 	public User createObject() {
-		User user = new User();
-		return user;
+        return new User();
 	}
 
 }
