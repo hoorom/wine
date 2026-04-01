@@ -21,12 +21,8 @@ import lombok.Setter;
 @Component
 public class UserForm implements WineCreationForm<User> {
 	
-	@Qualifier("userServiceImpl")
-	@Autowired
-	private UserService userService;
-
 	@Getter @Setter
-	private String username;
+	private String mail;
 	
 	@Getter @Setter
 	private Civility civility;
@@ -54,8 +50,7 @@ public class UserForm implements WineCreationForm<User> {
 
 	@Override
 	public User createObject() {
-		User user = getFactory().createObject(this);
-		return user;
+        return getFactory().createObject(this);
 	}
 
 	@Override

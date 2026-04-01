@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.wine.auth.domain.User;
 import com.wine.auth.form.UserForm;
 import com.wine.auth.form.UserValidator;
@@ -40,10 +43,22 @@ public class UserController {
 	}
 
 	@PostMapping("/registration")
-	public String registration(@ModelAttribute("userForm") UserForm userForm, BindingResult bindingResult) {
+	public String registration(@ModelAttribute("userForm") UserForm userForm, BindingResult bindingResult, Model model) {
 		userValidator.validate(userForm, bindingResult);
 
 		if (bindingResult.hasErrors()) {
+			Map<String, String> fieldErrors = new HashMap<>();
+			bindingResult.getFieldErrors().forEach(e -> fieldErrors.put(e.getField(), e.getDefaultMessage()));
+			model.addAttribute("fieldErrors", fieldErrors);
+
+			Map<String, String> formValues = new HashMap<>();
+			formValues.put("username", userForm.getMail() != null ? userForm.getMail() : "");
+			formValues.put("firstName", userForm.getFirstName() != null ? userForm.getFirstName() : "");
+			formValues.put("lastName", userForm.getLastName() != null ? userForm.getLastName() : "");
+			formValues.put("civility", userForm.getCivility() != null ? userForm.getCivility().name() : "");
+			formValues.put("birthdate", userForm.getBirthdate() != null ? userForm.getBirthdate().toString() : "");
+			model.addAttribute("formValues", formValues);
+
 			return "registration";
 		}
 
