@@ -1,52 +1,67 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title>Ajouter une bouteille</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ajouter une bouteille</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
 </head>
 <body>
-<div th:replace="includes/header :: header"></div>
-	<h1>Ajouter une bouteille :</h1>
-
-	<form th:action="@{/bottleList/addBottle}" th:object="${bottleForm}"
-		method="POST">
-		Nom : <input type="text" th:field="*{name}" /> 
-		<br /> 
-		Taille : <select name="size">
-			<option
-				th:each="size : ${T(com.wine.bottle.util.BottleSize).values()}"
-				th:value="${size}" th:text="${size}" />
-		</select> 
-		<br />
-		Millésime : <input type="number" th:field="*{vintage}" /> 
-		<br />
-		Quantité : <input type="number" th:field="*{quantity}" /> 
-		<br />
-		Appélation : <select name="label">
-			<option
-				th:each="label : ${T(com.wine.bottle.util.WineLabel).values()}"
-				th:value="${label}" th:text="${label}" />
-		</select> 
-		<br />
-		Domaine : <input type="text" th:field="*{domain}" /> 
-		<br />
-		Couleur : <select name="color">
-			<option
-				th:each="color : ${T(com.wine.bottle.util.WineColor).values()}"
-				th:value="${color}" th:text="${color}" />
-		</select> 
-		<br />
-		A boire à partir de : <input type="number" th:field="*{drinkFrom}" /> 
-		<br />
-		A boire jusqu'à : <input type="number" th:field="*{drinkTo}" /> 
-		<br />
-		<!--  Cave : <input type="text" th:field="*{name}" /> 
-		<br />-->
-		Prix : <input type="number" step="0.01"  th:field="*{price}" /> 
-		<br />
-		<input type="submit" value="Ajouter" />
-	</form>
-
+    <div th:replace="includes/header :: header"></div>
+    <main class="page">
+        <h1>Ajouter une bouteille</h1>
+        <form th:action="@{/bottleList/addBottle}" th:object="${bottleForm}" method="POST">
+            <div class="form-group">
+                <label>Nom</label>
+                <input type="text" th:field="*{name}"/>
+            </div>
+            <div class="form-group">
+                <label>Taille</label>
+                <select name="size">
+                    <option th:each="size : ${T(com.wine.bottle.util.BottleSize).values()}"
+                            th:value="${size}" th:text="${size}"/>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Millésime</label>
+                <input type="number" th:field="*{vintage}"/>
+            </div>
+            <div class="form-group">
+                <label>Quantité</label>
+                <input type="number" th:field="*{quantity}"/>
+            </div>
+            <div class="form-group">
+                <label>Appellation</label>
+                <select name="label">
+                    <option th:each="label : ${T(com.wine.bottle.util.WineLabel).values()}"
+                            th:value="${label}" th:text="${label}"/>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Domaine</label>
+                <input type="text" th:field="*{domain}"/>
+            </div>
+            <div class="form-group">
+                <label>Couleur</label>
+                <select name="color">
+                    <option th:each="color : ${T(com.wine.bottle.util.WineColor).values()}"
+                            th:value="${color}" th:text="${color}"/>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>À boire à partir de</label>
+                <input type="number" th:field="*{drinkFrom}"/>
+            </div>
+            <div class="form-group">
+                <label>À boire jusqu'à</label>
+                <input type="number" th:field="*{drinkTo}"/>
+            </div>
+            <div class="form-group">
+                <label>Prix (€)</label>
+                <input type="number" step="0.01" th:field="*{price}"/>
+            </div>
+            <input type="submit" value="Ajouter"/>
+        </form>
+    </main>
 </body>
 </html>

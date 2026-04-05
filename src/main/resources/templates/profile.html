@@ -1,18 +1,19 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title th:utext="#{profile}" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:utext="#{profile}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
 </head>
 <body>
-	<div th:replace="includes/header :: header"></div>
-	<h1>Mon compte</h1>
-	<br />
-	<div>
-	<th th:utext="${person.firstName}" />
-		<th th:utext="${person.firstName}" />
-		<th th:utext="${person.lastName}" />
-	</div>
+    <div th:replace="includes/header :: header"></div>
+    <main class="page">
+        <h1>Mon compte</h1>
+        <div>
+            <p><strong>Prénom :</strong> <span th:utext="${person.firstName}"/></p>
+            <p><strong>Nom :</strong> <span th:utext="${person.lastName}"/></p>
+        </div>
+    </main>
 </body>
 </html>

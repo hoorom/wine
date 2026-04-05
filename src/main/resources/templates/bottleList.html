@@ -1,31 +1,37 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8" />
-<title th:utext="#{myCellar}" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:utext="#{myCellar}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
 </head>
 <body>
-	<div th:replace="includes/header :: header"></div>
-	<h1>Ma cave</h1>
-	<a href="/bottle" th:utext="#{bottleList.create.action}"></a>
-	<br />
-	<br />
-	<div>
-		<table border="1">
-			<tr>
-				<th th:utext="#{bottle.name}" />
-				<th th:utext="#{wine.color}" />
-				<th th:utext="#{bottle.size}" />
-			</tr>
-			<tr th:each="bottle : ${fullBottles}">
-				<td th:utext="${bottle.name}" />
-				<td th:utext="${bottle.wine.color}" />
-				<td th:utext="#{${bottle.size}}" />
-				<td><a th:href="@{'/bottleList/drinkBottle/' + ${bottle.id}}"
-					class="btn btn-danger">Boire</a></td>
-			</tr>
-		</table>
-	</div>
+    <div th:replace="includes/header :: header"></div>
+    <main class="page">
+        <h1>Ma cave</h1>
+        <a href="/bottle" class="btn btn-primary" th:utext="#{bottleList.create.action}">Ajouter une bouteille</a>
+        <br/><br/>
+        <table>
+            <thead>
+                <tr>
+                    <th th:utext="#{bottle.name}"/>
+                    <th th:utext="#{wine.color}"/>
+                    <th th:utext="#{bottle.size}"/>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="bottle : ${fullBottles}">
+                    <td th:utext="${bottle.name}"/>
+                    <td th:utext="${bottle.wine.color}"/>
+                    <td th:utext="#{${bottle.size}}"/>
+                    <td>
+                        <a th:href="@{'/bottleList/drinkBottle/' + ${bottle.id}}" class="btn btn-danger">Boire</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
 </body>
 </html>
