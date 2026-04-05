@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.wine.bottle.repository.CellarRepository;
 import com.wine.bottle.service.CellarService;
+import com.wine.frmwrk.service.MenuService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,12 +24,16 @@ public class DashboardController {
 	@Autowired
 	private CellarRepository cellarRepository;
 
+	@Autowired
+	private MenuService menuService;
+
 	/**
 	 * Liste des caves
 	 */
 	@GetMapping(value = { "/dashboard" })
 	public String fullBottleList(Model model) {
 		model.addAttribute("cellars", cellarService.getCellars());
+		model.addAttribute("menuItems", menuService.getMenu());
 		return "dashboard";
 	}
 

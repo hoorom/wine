@@ -6,6 +6,7 @@ import com.wine.bottle.form.BottleForm;
 import com.wine.bottle.repository.BottleRepository;
 import com.wine.bottle.service.BottleService;
 import com.wine.bottle.util.BottleSize;
+import com.wine.frmwrk.service.MenuService;
 import com.wine.bottle.util.BottleStatus;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;
@@ -28,9 +29,12 @@ public class BottleController {
 
 	final BottleRepository bottleRepository;
 
-	public BottleController(BottleService bottleService, BottleRepository bottleRepository) {
+	final MenuService menuService;
+
+	public BottleController(BottleService bottleService, BottleRepository bottleRepository, MenuService menuService) {
 		this.bottleService = bottleService;
 		this.bottleRepository = bottleRepository;
+		this.menuService = menuService;
 	}
 
 	/**
@@ -39,6 +43,7 @@ public class BottleController {
 	@GetMapping(value = { "/bottleList" })
 	public String fullBottleList(Model model) {
 		model.addAttribute("fullBottles", bottleService.getFullBottles());
+		model.addAttribute("menuItems", menuService.getMenu());
 		return "bottleList";
 	}
 
@@ -49,6 +54,7 @@ public class BottleController {
 	public String showAddBottle(Model model) {
 		BottleForm bottleForm = new BottleForm();
 		model.addAttribute("bottleForm", bottleForm);
+		model.addAttribute("menuItems", menuService.getMenu());
 		return "bottle";
 	}
 

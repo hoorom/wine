@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8" />
 <body>
-	<header>
+	<header th:fragment="header">
 		<nav>
-			<a href="/dashboard" th:utext="#{header.dashboard}"></a> 
-			<a href="/bottleList" th:utext="#{header.bottleList}"></a> 
-			<a href="/profile" th:utext="#{header.myAccount}"></a>
-			<a href="/logout" th:utext="#{header.logout}"></a>
+			<a th:each="item : ${menuItems}"
+			   th:href="@{${item.url}}"
+			   th:utext="#{${item.cleI18n}}">
+			</a>
 		</nav>
 	</header>
 </body>
