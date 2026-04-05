@@ -1,24 +1,27 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8" />
-      <title th:utext="#{dashboard}" />
-      <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
-   </head>
-   <body>
-      <div th:replace="includes/header :: header"> </div>
-      <h1>Mes caves</h1>
-      <br/><br/>
-      <br/><br/>
-      <div>
-         <table border="1">
-            <tr>
-               <th th:utext="#{cellar.name}" />
-            </tr>
-            <tr th:each ="cellar : ${cellars}">
-               <td th:utext="${cellar.name}" />
-            </tr>
-         </table>
-      </div>
-   </body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:utext="#{dashboard}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+</head>
+<body>
+    <div th:replace="includes/header :: header"></div>
+    <main class="page">
+        <h1>Mes caves</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th th:utext="#{cellar.name}"/>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="cellar : ${cellars}">
+                    <td th:utext="${cellar.name}"/>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
 </html>

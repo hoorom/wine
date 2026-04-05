@@ -1,14 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<meta charset="UTF-8" />
 <body>
-	<header>
-		<nav>
-			<a href="/dashboard" th:utext="#{header.dashboard}"></a> 
-			<a href="/bottleList" th:utext="#{header.bottleList}"></a> 
-			<a href="/profile" th:utext="#{header.myAccount}"></a>
-			<a href="/logout" th:utext="#{header.logout}"></a>
-		</nav>
-	</header>
+<header class="app-header" th:fragment="header">
+    <div class="app-header__inner">
+        <a href="/dashboard" class="app-header__logo">
+            <div class="app-header__logo-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 22h8"/>
+                    <path d="M7 10h10"/>
+                    <path d="M12 15v7"/>
+                    <path d="M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H7c-1.5 4-2 6-2 8a5 5 0 0 0 5 5z"/>
+                </svg>
+            </div>
+            <span class="app-header__logo-text">Ma Cave</span>
+        </a>
+        <nav class="app-header__nav">
+            <a href="/dashboard"  class="app-header__link" th:utext="#{header.dashboard}">Accueil</a>
+            <a href="/bottleList" class="app-header__link" th:utext="#{header.bottleList}">Ma cave</a>
+            <a href="/profile"    class="app-header__link" th:utext="#{header.myAccount}">Mon compte</a>
+            <a href="/logout"     class="app-header__link app-header__link--logout" th:utext="#{header.logout}">Se déconnecter</a>
+        </nav>
+    </div>
+</header>
 </body>
 </html>
