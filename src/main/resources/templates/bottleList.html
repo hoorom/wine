@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
 <body>
-	<div th:replace="/includes/header :: header"></div>
+	<div th:replace="includes/header :: header"></div>
 	<h1>Ma cave</h1>
 	<a href="/bottle" th:utext="#{bottleList.create.action}"></a>
 	<br />
